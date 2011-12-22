@@ -1,0 +1,65 @@
+
+CloudStack Capabilities as reported by the CloudStack API
+---------------------------------------------------------
+
+  CloudStack Version                :  2.2.11.20110831155510
+  Security Groups Enabled           :  true
+  Supports ELB                      :  false
+  Firewall Rule UI Enabled          :  false
+
+  Total Zones                       :  1
+  ----------------------------------------
+  
+  Zone ID     : 1
+  Zone Name   : RS
+  Network Type: Basic
+  SG Enabled  : true
+
+  Hypervisors                       :  1
+  ----------------------------------------
+  
+  Hypervisors found     : VMware
+
+Service Offerings 2
+-----------------
+
+  ID:  1
+  Name      : Small Instance
+  Display   : Small Instance, $0.05 per hour
+  CPU Speed : 500
+  Memory    : 512
+  Storage   : shared
+  HA        : false
+  ==
+
+  ID:  2
+  Name      : Medium Instance
+  Display   : Medium Instance, $0.10 per hour
+  CPU Speed : 1000
+  Memory    : 1024
+  Storage   : shared
+  HA        : false
+  ==
+
+
+Disk Offerings 3
+-----------------
+
+  ID:  3
+  Name      : Small
+  Display   : Small Disk, 5 GB
+  Disk Size : 5
+  ==
+
+  ID:  4
+  Name      : Medium
+  Display   : Medium Disk, 20 GB
+  Disk Size : 20
+  ==
+
+  ID:  5
+  Name      : Large
+  Display   : Large Disk, 100 GB
+  Disk Size : 100
+  ==
+
