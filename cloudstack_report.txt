@@ -7,6 +7,22 @@ CloudStack Capabilities as reported by the CloudStack API
   Supports ELB                      :  false
   Firewall Rule UI Enabled          :  false
 
+Known Domains 2
+-----------------
+
+  ID:  1
+  Name      : ROOT
+  Level     : 0
+  Has Child : true
+  ==
+
+  ID:  2
+  Name      : test
+  Level     : 1
+  Has Child : false
+  ==
+
+
   Total Zones                       :  1
   ----------------------------------------
   
@@ -42,24 +58,50 @@ Service Offerings 2
   ==
 
 
-Disk Offerings 3
+Disk offerings 3
 -----------------
 
-  ID:  3
-  Name      : Small
-  Display   : Small Disk, 5 GB
-  Disk Size : 5
+  id:  3
+  name      : Small
+  display   : Small Disk, 5 GB
+  disk size : 5
   ==
 
-  ID:  4
-  Name      : Medium
-  Display   : Medium Disk, 20 GB
-  Disk Size : 20
+  id:  4
+  name      : Medium
+  display   : Medium Disk, 20 GB
+  disk size : 20
   ==
 
-  ID:  5
-  Name      : Large
-  Display   : Large Disk, 100 GB
-  Disk Size : 100
+  id:  5
+  name      : Large
+  display   : Large Disk, 100 GB
+  disk size : 100
+  ==
+
+
+Network offerings 2
+-----------------
+
+  id:  6
+  name      : DefaultVirtualizedNetworkOffering
+  display   : Virtual Vlan
+  traffic   : Guest
+  is default: true
+  vlan      : false
+  avail     : Required
+  G IP type : Virtual
+  Net Rate  : 200
+  ==
+
+  id:  7
+  name      : DefaultDirectNetworkOffering
+  display   : Direct
+  traffic   : Guest
+  is default: true
+  vlan      : true
+  avail     : Optional
+  G IP type : Direct
+  Net Rate  : 200
   ==
 
