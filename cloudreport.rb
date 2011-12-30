@@ -13,7 +13,10 @@
 
 require 'nokogiri'
 
-api_calls = %w{ listCapabilities listDomains listZones listHypervisors listServiceOfferings listDiskOfferings listNetworkOfferings  }
+api_calls = %w{ 
+                  listPods listCapabilities listDomains listZones listHypervisors listServiceOfferings
+                  listDiskOfferings listNetworkOfferings listTemplates\&templatefilter=community\&name=right 
+              }
 
 def dumpxml(command)
   rawxml = `./cs_api.rb command=#{command}`

@@ -85,7 +85,27 @@ Network offerings <xsl:value-of select = "count" />
 </xsl:for-each>
 </xsl:template>
 
+<xsl:template match = "listtemplatesresponse">
+Community images found matching name "right"
 
+Images found <xsl:value-of select = "count" />
+-----------------
+<xsl:for-each select = "template" >
+  id:  <xsl:value-of select="id" />
+  name      : <xsl:value-of select="name" />
+  display   : <xsl:value-of select="displaytext" />
+  is public : <xsl:value-of select="ispublic" />
+  cross zone: <xsl:value-of select="crossZones" />
+  OS Name   : <xsl:value-of select="ostypename" />
+  account   : <xsl:value-of select="account" />
+  zone name : <xsl:value-of select="zonename" />
+  hypervisor: <xsl:value-of select="hypervisor" />
+  format    : <xsl:value-of select="format" />
+  size      : <xsl:value-of select="size" />
+  checksum  : <xsl:value-of select="checksum" />
+  ==
+</xsl:for-each>
+</xsl:template>
 </xsl:stylesheet>
 
 
