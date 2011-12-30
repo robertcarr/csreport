@@ -25,6 +25,7 @@ CloudStack Capabilities as reported by the CloudStack API
   Zone Name   : <xsl:value-of select="name" />
   Network Type: <xsl:value-of select="networktype" />
   SG Enabled  : <xsl:value-of select="securitygroupsenabled" />
+  ==
   </xsl:for-each>
 </xsl:template>
 
