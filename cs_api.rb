@@ -50,4 +50,4 @@ end
 cmd="#{@CLOUD_API_ENDPOINT}" + @api_command + "&apiKey=#{@CLOUD_API_KEY}" + "&signature=#{query(@api_command)}"
 #puts query(@api_command)
 res_code=`curl -sw %{http_code} "#{cmd}"`
-puts res_code
+puts res_code   unless res_code.match("does not exist")
