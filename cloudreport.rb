@@ -32,7 +32,6 @@ api_calls = %w{
                   listDiskOfferings listNetworkOfferings listTemplates\&templatefilter=community\&name=right 
               }
 
-
 # Credentials & Endpoint are read from ./creds.yml
 @CLOUD_API_KEY        = config['cloud_api_key']
 @CLOUD_API_SECRET     = config['cloud_api_secret']

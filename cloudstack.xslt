@@ -7,7 +7,7 @@ CloudStack Capabilities as reported by the CloudStack API
   CloudStack Version                :  <xsl:value-of select="cloudstackversion" />
   Security Groups Enabled           :  <xsl:value-of select="securitygroupsenabled"/>
   Supports ELB                      :  <xsl:value-of select="supportELB"/>
-  Firewall Rule UI Enabled          :  <xsl:value-of select="supportELB"/>
+  Firewall Rule UI Enabled          :  <xsl:value-of select="firewallRuleUiEnabled">
 </xsl:template>
 
 <xsl:template match = "listhypervisorsresponse">
@@ -21,10 +21,10 @@ CloudStack Capabilities as reported by the CloudStack API
   Total Zones                       :  <xsl:value-of select="count" />
   ----------------------------------------
   <xsl:for-each select = "zone">
-  Zone ID     : <xsl:value-of select="id" />
-  Zone Name   : <xsl:value-of select="name" />
-  Network Type: <xsl:value-of select="networktype" />
-  SG Enabled  : <xsl:value-of select="securitygroupsenabled" />
+  Zone ID       : <xsl:value-of select="id" />
+  Zone Name     : <xsl:value-of select="name" />
+  Network Type  : <xsl:value-of select="networktype" />
+  Sec Groups    : <xsl:value-of select="securitygroupsenabled" />
   ==
   </xsl:for-each>
 </xsl:template>
