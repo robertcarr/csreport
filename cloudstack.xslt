@@ -45,21 +45,29 @@ Known Domains <xsl:value-of select = "count" />
 Network Configurations
 Networks Found <xsl:value-of select = "count" />
 -----------------
-<xsl:for-each select = "networks" >
-  ID             :  <xsl:value-of select="id" />
+<xsl:for-each select = "network" >
+  ID             : <xsl:value-of select="id" />
   Display        : <xsl:value-of select="displaytext" />
+  Network Name   : <xsl:value-of select="networkofferingname" />
+  Network Avail. : <xsl:value-of select="networkofferingavailability" />
   Account        : <xsl:value-of select="account" />
   Domain Owner   : <xsl:value-of select="domain" />
-  Gateway        : <xsl:value-of select="gateway" />
   Is Default     : <xsl:value-of select="isdefault" />
   Is Shared      : <xsl:value-of select="isshared" />
   Network domain : <xsl:value-of select="networkdomain" />
   Sec Groups     : <xsl:value-of select="securitygroupenabled" />
   Traffic Type   : <xsl:value-of select="traffictype" />
-  Net. Type      : <xsl:value-of select="type" />
-  Vlan           : <xsl:value-of select="vlan" />
+  Brcast D. Type : <xsl:value-of select="broadcastdomaintype" />
   Net. Type      : <xsl:value-of select="type" />
   ==
+</xsl:for-each>
+
+<xsl:for-each select = "network/service" >
+Service Found:  <xsl:value-of select = "name" />
+<xsl:for-each select = "capability" >
+   Capability    : <xsl:value-of select = "name" />  
+   Value         : <xsl:value-of select = "value" />   
+</xsl:for-each>
 </xsl:for-each>
 </xsl:template>
 
