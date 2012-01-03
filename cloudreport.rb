@@ -28,7 +28,7 @@ end
 # Some of these commands require you to have DOMAIN ADMIN priviledges!
 
 api_calls = %w{ 
-                  listCapabilities listDomains listZones listHypervisors listServiceOfferings
+                  listCapabilities listDomains listZones listNetworks listHypervisors listServiceOfferings
                   listDiskOfferings listNetworkOfferings listTemplates\&templatefilter=community\&name=right 
               }
 
@@ -36,6 +36,9 @@ api_calls = %w{
 @CLOUD_API_KEY        = config['cloud_api_key']
 @CLOUD_API_SECRET     = config['cloud_api_secret']
 @CLOUD_API_ENDPOINT   = config['cloud_api_endpoint']
+
+# XML Template
+@XML_TEMPLATE = File.dirname(__FILE__) + "/cloudstack.xslt"
 
 # Build a CloudStack query string and sign it.
 #
@@ -62,7 +65,7 @@ end
 def dumpxml(command)
   rawxml = callapi(command)
   xml = Nokogiri::XML(rawxml)
-  xslt = Nokogiri::XSLT(File.read('./cloudstack.xslt'))
+  xslt = Nokogiri::XSLT(File.read(@XML_TEMPLATE))
   puts xslt.transform(xml)
 end
 

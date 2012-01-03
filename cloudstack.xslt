@@ -7,7 +7,7 @@ CloudStack Capabilities as reported by the CloudStack API
   CloudStack Version                :  <xsl:value-of select="cloudstackversion" />
   Security Groups Enabled           :  <xsl:value-of select="securitygroupsenabled"/>
   Supports ELB                      :  <xsl:value-of select="supportELB"/>
-  Firewall Rule UI Enabled          :  <xsl:value-of select="firewallRuleUiEnabled">
+  Firewall Rule UI Enabled          :  <xsl:value-of select="firewallRuleUiEnabled"/>
 </xsl:template>
 
 <xsl:template match = "listhypervisorsresponse">
@@ -37,6 +37,28 @@ Known Domains <xsl:value-of select = "count" />
   Name      : <xsl:value-of select="name" />
   Level     : <xsl:value-of select="level" />
   Has Child : <xsl:value-of select="haschild" />
+  ==
+</xsl:for-each>
+</xsl:template>
+
+<xsl:template match = "listnetworksresponse">
+Network Configurations
+Networks Found <xsl:value-of select = "count" />
+-----------------
+<xsl:for-each select = "networks" >
+  ID             :  <xsl:value-of select="id" />
+  Display        : <xsl:value-of select="displaytext" />
+  Account        : <xsl:value-of select="account" />
+  Domain Owner   : <xsl:value-of select="domain" />
+  Gateway        : <xsl:value-of select="gateway" />
+  Is Default     : <xsl:value-of select="isdefault" />
+  Is Shared      : <xsl:value-of select="isshared" />
+  Network domain : <xsl:value-of select="networkdomain" />
+  Sec Groups     : <xsl:value-of select="securitygroupenabled" />
+  Traffic Type   : <xsl:value-of select="traffictype" />
+  Net. Type      : <xsl:value-of select="type" />
+  Vlan           : <xsl:value-of select="vlan" />
+  Net. Type      : <xsl:value-of select="type" />
   ==
 </xsl:for-each>
 </xsl:template>
