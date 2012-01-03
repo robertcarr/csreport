@@ -65,6 +65,11 @@ end
 def dumpxml(command)
   rawxml = callapi(command)
   xml = Nokogiri::XML(rawxml)
+  xml.xpath("//listcapabilitiesresponse/capability").each do |node|
+    reportdate = Time.now.strftime("%M-%d-%Y %H:%M:%S")
+    node.add_child "<cloudapiendpoint>#{@CLOUD_API_ENDPOINT}</cloudapiendpoint>"
+    node.add_child "<reportdate>#{reportdate}</reportdate>"
+  end
   xslt = Nokogiri::XSLT(File.read(@XML_TEMPLATE))
   puts xslt.transform(xml)
 end
@@ -72,4 +77,5 @@ end
 
 # Cycle through each of the API calls.
 # Build a properly formatted API string, sign it, call it & transform the results.
+
 api_calls.each { |cmd| dumpxml(cmd) }

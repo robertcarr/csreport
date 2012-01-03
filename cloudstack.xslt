@@ -3,8 +3,10 @@
 <xsl:template match = "listcapabilitiesresponse/capability">
 CloudStack Capabilities as reported by the CloudStack API
 ---------------------------------------------------------
+Report Date: <xsl:value-of select = "reportdate" />
 
   CloudStack Version                :  <xsl:value-of select="cloudstackversion" />
+  CloudStack Endpoint Tested        :  <xsl:value-of select="cloudapiendpoint" />
   Security Groups Enabled           :  <xsl:value-of select="securitygroupsenabled"/>
   Supports ELB                      :  <xsl:value-of select="supportELB"/>
   Firewall Rule UI Enabled          :  <xsl:value-of select="firewallRuleUiEnabled"/>
