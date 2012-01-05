@@ -4,11 +4,17 @@ CSREPORT
 - A Quick and dirty hack to query a cloudstack endpoint for details.
 - Use at your own risk.
 
+USAGE
+========
+
+- Add creds to creds.yml file.
+
+./cloudreport.rb > cloudreport.txt
+
+
 NOTES
 =====
 
-- add your credentials & endpoint to creds.yml
-- execute cloudreport.rb
 - cloustack.xslt contains the formatting
 
 
