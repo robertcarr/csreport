@@ -29,8 +29,9 @@ end
 
 api_calls = %w{ 
                   listCapabilities listDomains listZones listNetworks listHypervisors listServiceOfferings
-                  listDiskOfferings listNetworkOfferings listTemplates\&templatefilter=community\&name=right 
+                  listDiskOfferings listNetworkOfferings listTemplates&templatefilter=community&name=right 
               }
+
 
 # Credentials & Endpoint are read from ./creds.yml
 @CLOUD_API_KEY        = config['cloud_api_key']
@@ -58,7 +59,7 @@ end
 def callapi(command)
 # TODO: Send command & check for success response.  Add retry?
   cmd="#{@CLOUD_API_ENDPOINT}" + "command=" + command + "&apiKey=#{@CLOUD_API_KEY}" + "&signature=#{query(command)}"
-  res_code=`curl -sw %{http_code} "#{cmd}"`
+  res_code=`curl -sw %{http_code} '#{cmd}'`
   res_code   unless res_code.match("does not exist")
 end
 
@@ -66,7 +67,7 @@ def dumpxml(command)
   rawxml = callapi(command)
   xml = Nokogiri::XML(rawxml)
   xml.xpath("//listcapabilitiesresponse/capability").each do |node|
-    reportdate = Time.now.strftime("%M-%d-%Y %H:%M:%S")
+    reportdate = Time.now.strftime("%m-%d-%Y %H:%M:%S")
     node.add_child "<cloudapiendpoint>#{@CLOUD_API_ENDPOINT}</cloudapiendpoint>"
     node.add_child "<reportdate>#{reportdate}</reportdate>"
   end
