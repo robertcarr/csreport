@@ -127,7 +127,9 @@ Images found <xsl:value-of select = "count" />
   id:  <xsl:value-of select="id" />
   name      : <xsl:value-of select="name" />
   display   : <xsl:value-of select="displaytext" />
+  created   : <xsl:value-of select="created" />
   is public : <xsl:value-of select="ispublic" />
+  is ready  : <xsl:value-of select="isready" />
   cross zone: <xsl:value-of select="crossZones" />
   OS Name   : <xsl:value-of select="ostypename" />
   account   : <xsl:value-of select="account" />
@@ -136,6 +138,7 @@ Images found <xsl:value-of select = "count" />
   format    : <xsl:value-of select="format" />
   size      : <xsl:value-of select="size" />
   checksum  : <xsl:value-of select="checksum" />
+  status    : <xsl:value-of select="status" />
   ==
 </xsl:for-each>
 </xsl:template>
