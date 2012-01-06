@@ -1,3 +1,4 @@
-api_key : <replace>
-api_secret : <replace>
-api_endpoint : <replace>
+api_name      : <Brief description of the endpoint.  Displays on report>
+api_key       : <replace> 
+api_secret    : <replace>
+api_endpoint  : <replace>

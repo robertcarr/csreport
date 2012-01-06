@@ -67,8 +67,10 @@ def dumpxml(command)
   xml = Nokogiri::XML(rawxml)
   xml.xpath("//listcapabilitiesresponse/capability").each do |node|
     reportdate = Time.now.strftime("%m-%d-%Y %H:%M:%S")
+    node.add_child "<apiname>#{@CLOUD['api_name']}</apiname>" if @CLOUD['api_name']
     node.add_child "<cloudapiendpoint>#{@CLOUD['api_endpoint']}</cloudapiendpoint>"
     node.add_child "<reportdate>#{reportdate}</reportdate>"
+
   end
   xslt = Nokogiri::XSLT(File.read(@XML_TEMPLATE))
   puts xslt.transform(xml)

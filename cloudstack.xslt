@@ -3,7 +3,8 @@
 <xsl:template match = "listcapabilitiesresponse/capability">
 CloudStack Capabilities as reported by the CloudStack API
 ---------------------------------------------------------
-Report Date: <xsl:value-of select = "reportdate" />
+API endpoint Name : <xsl:value-of select = "apiname" />
+Report Date       : <xsl:value-of select = "reportdate" />
 
   CloudStack Version                :  <xsl:value-of select="cloudstackversion" />
   CloudStack Endpoint Tested        :  <xsl:value-of select="cloudapiendpoint" />
