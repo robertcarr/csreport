@@ -1,8 +1,10 @@
 
 CloudStack Capabilities as reported by the CloudStack API
 ---------------------------------------------------------
+Report Date: 01-06-2012 14:50:45
 
   CloudStack Version                :  2.2.11.20110831155510
+  CloudStack Endpoint Tested        :  http://173.227.0.200:8080/client/api?
   Security Groups Enabled           :  true
   Supports ELB                      :  false
   Firewall Rule UI Enabled          :  false
@@ -26,10 +28,17 @@ Known Domains 2
   Total Zones                       :  1
   ----------------------------------------
   
-  Zone ID     : 1
-  Zone Name   : RS
-  Network Type: Basic
-  SG Enabled  : true
+  Zone ID       : 1
+  Zone Name     : RS
+  Network Type  : Basic
+  Sec Groups    : true
+  ==
+  
+
+Network Configurations
+Networks Found 
+-----------------
+
 
   Hypervisors                       :  1
   ----------------------------------------
@@ -103,5 +112,39 @@ Network offerings 2
   avail     : Optional
   G IP type : Direct
   Net Rate  : 200
+  ==
+
+
+Community images found matching name "right"
+
+Images found 2
+-----------------
+
+  id:  220
+  name      : RightImage_CentOS_5.4_x64_v5.6.28_Dev1
+  display   : RightImage_CentOS_5.4_x64_v5.6.28_Dev1
+  is public : true
+  cross zone: false
+  OS Name   : CentOS 5.4 (64-bit)
+  account   : admin
+  zone name : RS
+  hypervisor: VMware
+  format    : OVA
+  size      : 850821120
+  checksum  : 
+  ==
+
+  id:  202
+  name      : RightImage_CentOS_5.4_x64_v5.6.28.1
+  display   : RightImage_CentOS_5.4_x64_v5.6.28.1
+  is public : true
+  cross zone: false
+  OS Name   : CentOS 5.4 (64-bit)
+  account   : admin
+  zone name : RS
+  hypervisor: VMware
+  format    : OVA
+  size      : 868321280
+  checksum  : 
   ==
 

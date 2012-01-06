@@ -34,9 +34,8 @@ api_calls = %w{
 
 
 # Credentials & Endpoint are read from ./creds.yml
-@CLOUD_API_KEY        = config['cloud_api_key']
-@CLOUD_API_SECRET     = config['cloud_api_secret']
-@CLOUD_API_ENDPOINT   = config['cloud_api_endpoint']
+@CLOUD = Hash.new
+@CLOUD.merge!(config)
 
 # XML Template
 @XML_TEMPLATE = File.dirname(__FILE__) + "/cloudstack.xslt"
@@ -46,8 +45,8 @@ api_calls = %w{
 def query(string)
 # TODO: url encode values for each keypair prior to signing.  
 # TODO: Urlencode '+' w/ '%20'
-  pre_signed = "apiKey=#{@CLOUD_API_KEY}&" + "command=" + string.split("&").sort.join("&")
-  sign(@CLOUD_API_SECRET, pre_signed)
+  pre_signed = "apiKey=#{@CLOUD['api_key']}&" + "command=" + string.split("&").sort.join("&")
+  sign(@CLOUD['api_secret'], pre_signed)
 end
 
 # Return Signature
@@ -58,7 +57,7 @@ end
 
 def callapi(command)
 # TODO: Send command & check for success response.  Add retry?
-  cmd="#{@CLOUD_API_ENDPOINT}" + "command=" + command + "&apiKey=#{@CLOUD_API_KEY}" + "&signature=#{query(command)}"
+  cmd="#{@CLOUD['api_endpoint']}" + "command=" + command + "&apiKey=#{@CLOUD['api_key']}" + "&signature=#{query(command)}"
   res_code=`curl -sw %{http_code} '#{cmd}'`
   res_code   unless res_code.match("does not exist")
 end
@@ -68,7 +67,7 @@ def dumpxml(command)
   xml = Nokogiri::XML(rawxml)
   xml.xpath("//listcapabilitiesresponse/capability").each do |node|
     reportdate = Time.now.strftime("%m-%d-%Y %H:%M:%S")
-    node.add_child "<cloudapiendpoint>#{@CLOUD_API_ENDPOINT}</cloudapiendpoint>"
+    node.add_child "<cloudapiendpoint>#{@CLOUD['api_endpoint']}</cloudapiendpoint>"
     node.add_child "<reportdate>#{reportdate}</reportdate>"
   end
   xslt = Nokogiri::XSLT(File.read(@XML_TEMPLATE))
